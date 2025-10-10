@@ -9,13 +9,13 @@
     <style>
         /* Reset e variabili */
         :root {
-            --primary-green: #1a472a;
-            --secondary-green: #2d4a2d;
-            --accent-green: #4a7c59;
-            --light-green: #7dbb7d;
-            --pale-green: #e8f4e8;
-            --text-dark: #1a2f1a;
-            --text-light: #f5f9f5;
+            --primary-color: #9c27b0;
+            --secondary-color: #e91e63;
+            --accent-color: #ff9800;
+            --light-color: #ffeb3b;
+            --pale-color: #fce4ec;
+            --text-dark: #2c1a2f;
+            --text-light: #fef7ff;
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --radius: 12px;
@@ -33,7 +33,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f9f5;
+            background-color: #fef7ff;
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
@@ -63,7 +63,7 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-green);
+            color: var(--primary-color);
             margin-bottom: 15px;
         }
 
@@ -75,13 +75,13 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: var(--light-green);
+            background: var(--accent-color);
             border-radius: 2px;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             color: white;
             padding: 12px 28px;
             border-radius: 30px;
@@ -90,23 +90,23 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(125, 187, 125, 0.3);
+            box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
         }
 
         .btn:hover {
-            background-color: var(--accent-green);
+            background-color: var(--primary-color);
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(125, 187, 125, 0.4);
+            box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
         }
 
         .btn-secondary {
             background-color: transparent;
-            border: 2px solid var(--light-green);
-            color: var(--light-green);
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
         }
 
         .btn-secondary:hover {
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             color: white;
         }
 
@@ -117,7 +117,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--primary-green);
+            background-color: var(--primary-color);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -133,7 +133,7 @@
 
         .loading-logo {
             font-size: 4rem;
-            color: var(--light-green);
+            color: var(--light-color);
             margin-bottom: 2rem;
             font-family: 'Playfair Display', serif;
             opacity: 0;
@@ -160,12 +160,12 @@
             position: absolute;
             height: 100%;
             width: 0%;
-            background-color: var(--light-green);
+            background-color: var(--light-color);
             border-radius: 3px;
             animation: loading 3s ease-in-out infinite;
         }
 
-        .loading-leaves {
+        .loading-petals {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -173,13 +173,13 @@
             left: 0;
         }
 
-        .leaf {
+        .petal {
             position: absolute;
             width: 20px;
             height: 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237dbb7d"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c-.01.02 8.33-3.18 10.34-11.7z"/></svg>');
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffeb3b"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>');
             opacity: 0;
-            animation: fallingLeaves 10s linear infinite;
+            animation: fallingPetals 10s linear infinite;
         }
 
         @keyframes loading {
@@ -193,7 +193,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fallingLeaves {
+        @keyframes fallingPetals {
             0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
             10% { opacity: 1; }
             90% { opacity: 1; }
@@ -202,7 +202,7 @@
 
         /* Header */
         header {
-            background-color: var(--primary-green);
+            background-color: var(--primary-color);
             color: white;
             padding: 1rem 0;
             position: sticky;
@@ -221,7 +221,7 @@
         .logo {
             font-size: 2.2rem;
             font-weight: bold;
-            color: var(--light-green);
+            color: var(--light-color);
             font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
@@ -258,12 +258,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--light-green);
+            background-color: var(--light-color);
             transition: var(--transition);
         }
 
         nav ul li a:hover {
-            color: var(--light-green);
+            color: var(--light-color);
         }
 
         nav ul li a:hover::after {
@@ -271,7 +271,7 @@
         }
 
         .nav-cta {
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             padding: 8px 20px;
             border-radius: 30px;
             margin-left: 2rem;
@@ -279,7 +279,7 @@
         }
 
         .nav-cta:hover {
-            background-color: #6aa86a;
+            background-color: #d81b60;
             transform: translateY(-2px);
         }
 
@@ -298,7 +298,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(26, 71, 42, 0.85) 0%, rgba(45, 74, 45, 0.75) 100%), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.85) 0%, rgba(233, 30, 99, 0.75) 100%), url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -316,7 +316,7 @@
             left: 0;
             width: 100%;
             height: 100px;
-            background: linear-gradient(to top, #f5f9f5, transparent);
+            background: linear-gradient(to top, #fef7ff, transparent);
             z-index: 1;
         }
 
@@ -383,7 +383,7 @@
             left: 0;
             width: 100%;
             height: 0;
-            background: linear-gradient(to bottom, var(--light-green), var(--accent-green));
+            background: linear-gradient(to bottom, var(--secondary-color), var(--primary-color));
             transition: var(--transition);
             z-index: -1;
         }
@@ -404,7 +404,7 @@
 
         .service-icon {
             font-size: 3rem;
-            color: var(--light-green);
+            color: var(--secondary-color);
             margin-bottom: 20px;
             transition: var(--transition);
         }
@@ -416,7 +416,7 @@
 
         /* Sezione Prodotti */
         .products {
-            background-color: var(--pale-green);
+            background-color: var(--pale-color);
         }
 
         .products-filter {
@@ -429,7 +429,7 @@
 
         .filter-btn {
             background: white;
-            border: 2px solid var(--light-green);
+            border: 2px solid var(--secondary-color);
             color: var(--text-dark);
             padding: 8px 20px;
             border-radius: 30px;
@@ -439,7 +439,7 @@
         }
 
         .filter-btn.active, .filter-btn:hover {
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             color: white;
         }
 
@@ -467,7 +467,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             color: white;
             padding: 5px 10px;
             border-radius: 20px;
@@ -478,7 +478,7 @@
 
         .product-image {
             height: 220px;
-            background-color: var(--light-green);
+            background-color: var(--secondary-color);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -491,7 +491,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(26, 71, 42, 0.8);
+            background: rgba(156, 39, 176, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -513,7 +513,7 @@
             height: 45px;
             border-radius: 50%;
             background: white;
-            color: var(--primary-green);
+            color: var(--primary-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -521,7 +521,7 @@
         }
 
         .product-action:hover {
-            background: var(--light-green);
+            background: var(--secondary-color);
             color: white;
             transform: scale(1.1);
         }
@@ -531,7 +531,7 @@
         }
 
         .product-category {
-            color: var(--accent-green);
+            color: var(--primary-color);
             font-size: 0.9rem;
             margin-bottom: 5px;
             display: block;
@@ -542,26 +542,23 @@
             margin-bottom: 10px;
         }
 
-        .product-price {
-            color: var(--light-green);
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
         .product-rating {
             color: #ffc107;
             margin-bottom: 15px;
         }
 
         .product-notice {
-            background-color: var(--pale-green);
+            background-color: var(--pale-color);
             padding: 10px;
             border-radius: 8px;
             text-align: center;
             margin-top: 15px;
             font-size: 0.9rem;
-            color: var(--accent-green);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
         /* Sezione Chi Siamo */
@@ -596,7 +593,7 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--light-green);
+            color: var(--secondary-color);
             display: block;
         }
 
@@ -627,7 +624,7 @@
 
         /* Sezione Testimonianze */
         .testimonials {
-            background: linear-gradient(135deg, var(--pale-green) 0%, #d4e8d4 100%);
+            background: linear-gradient(135deg, var(--pale-color) 0%, #f8bbd9 100%);
         }
 
         .testimonials-container {
@@ -665,7 +662,7 @@
             top: 20px;
             left: 20px;
             font-size: 4rem;
-            color: var(--light-green);
+            color: var(--secondary-color);
             opacity: 0.2;
             font-family: Georgia, serif;
         }
@@ -689,7 +686,7 @@
             height: 60px;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid var(--light-green);
+            border: 3px solid var(--secondary-color);
         }
 
         .author-avatar img {
@@ -703,7 +700,7 @@
         }
 
         .author-info p {
-            color: var(--accent-green);
+            color: var(--primary-color);
             font-size: 0.9rem;
         }
 
@@ -718,7 +715,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: var(--light-green);
+            background: var(--secondary-color);
             opacity: 0.3;
             cursor: pointer;
             transition: var(--transition);
@@ -756,8 +753,8 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--pale-green);
-            color: var(--light-green);
+            background: var(--pale-color);
+            color: var(--secondary-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -770,7 +767,7 @@
         }
 
         .contact-form {
-            background-color: var(--pale-green);
+            background-color: var(--pale-color);
             padding: 40px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -797,9 +794,9 @@
         }
 
         .form-control:focus {
-            border-color: var(--light-green);
+            border-color: var(--secondary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(125, 187, 125, 0.2);
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
         }
 
         textarea.form-control {
@@ -807,9 +804,23 @@
             resize: vertical;
         }
 
+        /* Mappa */
+        .map-container {
+            margin-top: 40px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
         /* Footer */
         footer {
-            background-color: var(--primary-green);
+            background-color: var(--primary-color);
             color: white;
             padding: 70px 0 0;
         }
@@ -823,7 +834,7 @@
 
         .footer-logo {
             font-size: 2.2rem;
-            color: var(--light-green);
+            color: var(--light-color);
             margin-bottom: 20px;
             font-family: 'Playfair Display', serif;
         }
@@ -850,12 +861,12 @@
         }
 
         .social-link:hover {
-            background: var(--light-green);
+            background: var(--secondary-color);
             transform: translateY(-3px);
         }
 
         .footer-section h3 {
-            color: var(--light-green);
+            color: var(--light-color);
             margin-bottom: 25px;
             font-size: 1.3rem;
         }
@@ -877,7 +888,7 @@
         }
 
         .footer-links a:hover {
-            color: var(--light-green);
+            color: var(--light-color);
             padding-left: 5px;
         }
 
@@ -906,7 +917,7 @@
 
         .newsletter-input:focus {
             outline: none;
-            box-shadow: 0 0 0 2px var(--light-green);
+            box-shadow: 0 0 0 2px var(--light-color);
         }
 
         .copyright {
@@ -925,7 +936,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--light-green);
+            background: var(--secondary-color);
             color: white;
             display: flex;
             justify-content: center;
@@ -944,7 +955,7 @@
         }
 
         .back-to-top:hover {
-            background: var(--accent-green);
+            background: var(--primary-color);
             transform: translateY(-3px);
         }
 
@@ -992,7 +1003,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: var(--primary-green);
+                background: var(--primary-color);
                 padding: 20px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 transform: translateY(-100%);
@@ -1059,7 +1070,8 @@
                 flex-direction: column;
                 gap: 20px;
             }
-        }
+              
+    }
     </style>
 </head>
 <body>
@@ -1070,12 +1082,12 @@
             <div class="loading-text">Caricamento della natura...</div>
             <div class="loading-bar-container">
                 <div class="loading-bar"></div>
-                <div class="loading-leaves">
-                    <div class="leaf" style="left: 10%; animation-delay: 0s;"></div>
-                    <div class="leaf" style="left: 30%; animation-delay: 1s;"></div>
-                    <div class="leaf" style="left: 50%; animation-delay: 2s;"></div>
-                    <div class="leaf" style="left: 70%; animation-delay: 3s;"></div>
-                    <div class="leaf" style="left: 90%; animation-delay: 4s;"></div>
+                <div class="loading-petals">
+                    <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
+                    <div class="petal" style="left: 30%; animation-delay: 1s;"></div>
+                    <div class="petal" style="left: 50%; animation-delay: 2s;"></div>
+                    <div class="petal" style="left: 70%; animation-delay: 3s;"></div>
+                    <div class="petal" style="left: 90%; animation-delay: 4s;"></div>
                 </div>
             </div>
         </div>
@@ -1085,7 +1097,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <i class="fas fa-leaf"></i>
+                <i class="fas fa-spa"></i>
                 La Grotta Fiorita
             </div>
             <button class="mobile-menu-btn">
@@ -1109,10 +1121,10 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>La Bellezza della Natura a Casa Tua</h1>
-            <p>Scopri la nostra esclusiva collezione di fiori, piante e decorazioni naturali per portare un tocco di freschezza e benessere nella tua vita quotidiana.</p>
+            <p>Scopri la nostra esclusiva collezione di fiori, piante e decorazioni naturali con consegna a domicilio disponibile.</p>
             <div class="hero-btns">
                 <a href="#prodotti" class="btn">Scopri i Prodotti</a>
-                <a href="#contatti" class="btn btn-secondary">Vieni in Negozio</a>
+                <a href="#contatti" class="btn btn-secondary">Ordina a Domicilio</a>
             </div>
         </div>
     </section>
@@ -1134,10 +1146,10 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
+                        <i class="fas fa-truck"></i>
                     </div>
-                    <h3>Consulenza Esperta</h3>
-                    <p>I nostri esperti ti aiuteranno a scegliere le piante perfette per il tuo spazio.</p>
+                    <h3>Consegna a Domicilio</h3>
+                    <p>Servizio di consegna a domicilio disponibile nella zona di Ancona e dintorni.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
@@ -1157,25 +1169,26 @@
         </div>
     </section>
 
+
     <!-- Sezione Prodotti -->
     <section class="products section-padding" id="prodotti">
         <div class="container">
             <div class="section-title">
                 <h2>I Nostri Prodotti</h2>
-                <p>Scopri la nostra selezione di piante e fiori disponibili in negozio</p>
+                <p>Scopri la nostra selezione di piante e fiori disponibili in negozio e con consegna a domicilio</p>
             </div>
             <div class="products-filter">
                 <button class="filter-btn active" data-filter="all">Tutti</button>
                 <button class="filter-btn" data-filter="fiori">Fiori</button>
                 <button class="filter-btn" data-filter="piante">Piante</button>
                 <button class="filter-btn" data-filter="decorazioni">Decorazioni</button>
-                <button class="filter-btn" data-filter="offerte">Offerte Speciali</button>
+                <button class="filter-btn" data-filter="consegna">Consegna a Domicilio</button>
             </div>
             <div class="products-grid">
                 <!-- Prodotto 1 -->
-                <div class="product-card" data-category="fiori">
+                <div class="product-card" data-category="fiori consegna">
                     <div class="product-badge">Popolare</div>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1485955900006-10f4d324d411?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="product-image" style="background-image: url('img.jpg');">
                         <div class="product-overlay">
                             <div class="product-actions">
                                 <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
@@ -1193,16 +1206,18 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
                         </div>
-                        <p class="product-price">€24,90</p>
                         <div class="product-notice">
                             <i class="fas fa-store"></i> Disponibile in negozio
+                        </div>
+                        <div class="product-notice">
+                            <i class="fas fa-truck"></i> Consegna a domicilio disponibile
                         </div>
                         <a href="#contatti" class="btn">Info e Disponibilità</a>
                     </div>
                 </div>
                 <!-- Prodotto 2 -->
-                <div class="product-card" data-category="piante">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="product-card" data-category="piante consegna">
+                    <div class="product-image" style="background-image: url('img2.jpg');">
                         <div class="product-overlay">
                             <div class="product-actions">
                                 <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
@@ -1220,17 +1235,19 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="product-price">€32,50</p>
                         <div class="product-notice">
                             <i class="fas fa-store"></i> Disponibile in negozio
+                        </div>
+                        <div class="product-notice">
+                            <i class="fas fa-truck"></i> Consegna a domicilio disponibile
                         </div>
                         <a href="#contatti" class="btn">Info e Disponibilità</a>
                     </div>
                 </div>
                 <!-- Prodotto 3 -->
-                <div class="product-card" data-category="fiori offerte">
-                    <div class="product-badge">Offerta</div>
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1487070183337-b6b8cd60f2e5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                <div class="product-card" data-category="fiori consegna">
+                    <div class="product-badge">Novità</div>
+                    <div class="product-image" style="background-image: url('img3.jpg');">
                         <div class="product-overlay">
                             <div class="product-actions">
                                 <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
@@ -1248,16 +1265,18 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="product-price"><span style="text-decoration: line-through; color: #999; font-size: 1rem;">€24,90</span> €18,90</p>
                         <div class="product-notice">
                             <i class="fas fa-store"></i> Disponibile in negozio
+                        </div>
+                        <div class="product-notice">
+                            <i class="fas fa-truck"></i> Consegna a domicilio disponibile
                         </div>
                         <a href="#contatti" class="btn">Info e Disponibilità</a>
                     </div>
                 </div>
                 <!-- Prodotto 4 -->
                 <div class="product-card" data-category="piante">
-                    <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1597848212624-e5d4f1637dde?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+                    <div class="product-image" style="background-image: url('img4.jpg');">
                         <div class="product-overlay">
                             <div class="product-actions">
                                 <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
@@ -1275,7 +1294,6 @@
                             <i class="fas fa-star-half-alt"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="product-price">€22,00</p>
                         <div class="product-notice">
                             <i class="fas fa-store"></i> Disponibile in negozio
                         </div>
@@ -1295,12 +1313,12 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <p>La Grotta Fiorita nasce dalla passione per la natura e la bellezza che solo i fiori e le piante possono donare. Con oltre 20 anni di esperienza nel settore, ci dedichiamo a selezionare i prodotti migliori per i nostri clienti.</p>
-                    <p>Il nostro obiettivo è portare un po' di natura nelle case e negli uffici, creando ambienti più sani e piacevoli. Crediamo che ogni spazio possa essere trasformato con il tocco giusto di verde.</p>
-                    <p>La nostra filosofia si basa sul rispetto per l'ambiente e sulla sostenibilità. Tutti i nostri prodotti sono coltivati in modo responsabile e i nostri imballaggi sono eco-friendly.</p>
+                    <p>Dal 1990, La Grotta Fiorita è un'attività a gestione familiare che porta avanti con passione la tradizione floreale. Oggi, Enrica, giovane e dinamica donna, si sta facendo un bagaglio importante di esperienza e clientela, garantendo la massima serietà e professionalità.</p>
+                    <p>La nostra storia inizia con una piccola attività di famiglia, cresciuta nel tempo grazie all'amore per i fiori e alla dedizione verso ogni cliente. Oggi, continuiamo questa tradizione con entusiasmo rinnovato, unendo l'esperienza consolidata con nuove idee e creatività.</p>
+                    <p>Crediamo che ogni fiore racconti una storia e che ogni pianta porti con sé un messaggio di bellezza e benessere. Per questo ci impegniamo ogni giorno a selezionare i prodotti migliori e a offrire un servizio personalizzato che soddisfi ogni esigenza.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">20+</span>
+                            <span class="stat-number">30+</span>
                             <span class="stat-text">Anni di Esperienza</span>
                         </div>
                         <div class="stat">
@@ -1314,7 +1332,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Il nostro negozio">
+                    <img src="entree.jpeg" alt="Il nostro negozio">
                 </div>
             </div>
         </div>
@@ -1332,7 +1350,7 @@
                     <div class="testimonial-track">
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
-                                <p class="testimonial-text">Sono rimasta incantata dalla qualità delle piante e dal servizio clienti. Le mie orchidee sono arrivate in perfette condizioni e continuano a fiorire magnificamente dopo mesi. Consiglio La Grotta Fiorita a tutti gli amanti del verde!</p>
+                                <p class="testimonial-text">Sono rimasta incantata dalla qualità delle piante e dal servizio clienti. La consegna a domicilio è stata puntuale e le mie orchidee sono arrivate in perfette condizioni. Consiglio La Grotta Fiorita a tutti gli amanti del verde!</p>
                                 <div class="testimonial-author">
                                     <div class="author-avatar">
                                         <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Maria Rossi">
@@ -1346,7 +1364,7 @@
                         </div>
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
-                                <p class="testimonial-text">Ho ordinato diverse volte e sono sempre stato soddisfatto. La consegna è puntuale, le piante sono sane e bellissime. Il servizio clienti è eccellente e mi ha aiutato a scegliere le piante giuste per il mio appartamento poco luminoso.</p>
+                                <p class="testimonial-text">Ho ordinato diverse volte con consegna a domicilio e sono sempre stato soddisfatto. La consegna è puntuale, le piante sono sane e bellissime. Il servizio clienti è eccellente e mi ha aiutato a scegliere le piante giuste per il mio appartamento poco luminoso.</p>
                                 <div class="testimonial-author">
                                     <div class="author-avatar">
                                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Luca Bianchi">
@@ -1388,7 +1406,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Contattaci</h2>
-                <p>Vieni a trovarci in negozio o contattaci su WhatsApp</p>
+                <p>Vieni a trovarci in negozio, ordina con consegna a domicilio o contattaci su WhatsApp</p>
             </div>
             <div class="contact-container">
                 <div class="contact-info">
@@ -1430,11 +1448,11 @@
                     </div>
                     <div class="contact-card">
                         <div class="contact-icon">
-                            <i class="fas fa-info-circle"></i>
+                            <i class="fas fa-truck"></i>
                         </div>
                         <div class="contact-details">
-                            <h3>Acquisti</h3>
-                            <p>Tutti gli acquisti si effettuano esclusivamente in negozio</p>
+                            <h3>Consegna a Domicilio</h3>
+                            <p>Disponibile nella zona di Ancona e dintorni. Contattaci per informazioni.</p>
                         </div>
                     </div>
                 </div>
@@ -1461,6 +1479,10 @@
                     </form>
                 </div>
             </div>
+            <!-- Mappa di localizzazione -->
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2853.225425669106!2d13.51821531585065!3d43.61587997912173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132d8026c9b8c0e5%3A0x5e35e8c7e8e8e8e8!2sVia%20Maggini%2C%2028%2C%2060100%20Ancona%20AN!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" allowfullscreen="" loading="lazy"></iframe>
+            </div>
         </div>
     </section>
 
@@ -1470,7 +1492,7 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">La Grotta Fiorita</div>
-                    <p>Portiamo la bellezza della natura nella tua vita quotidiana con fiori, piante e decorazioni di alta qualità.</p>
+                    <p>Dal 1990 portiamo la bellezza della natura nella tua vita quotidiana con fiori, piante e decorazioni di alta qualità. Consegna a domicilio disponibile.</p>
                     <div class="contact-mini">
                         <p><i class="fas fa-map-marker-alt"></i> Via Maggini 28, 60100 Ancona</p>
                         <p><i class="fas fa-phone"></i> 071 280 2036</p>
@@ -1499,7 +1521,7 @@
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Piante da Interno</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Piante Grasse</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Decorazioni</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Accessori</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Consegna a Domicilio</a></li>
                     </ul>
                 </div>
                 <div class="footer-newsletter">
