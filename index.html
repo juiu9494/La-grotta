@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Grotta Fiorita - Fiori, Piante e Decorazioni Naturali</title>
+    <!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -1306,95 +1311,59 @@
 
 <!-- Sezione Testimonianze -->
 <section class="testimonials section-padding" id="testimonianze">
-    <div class="container">
-        <div class="section-title">
-            <h2>Cosa Dicono i Nostri Clienti</h2>
-            <p>Le esperienze di chi ha scelto La Grotta Fiorita</p>
+  <div class="container">
+    <div class="section-title">
+      <h2>Cosa Dicono i Nostri Clienti</h2>
+      <p>Le esperienze di chi ha scelto La Grotta Fiorita</p>
+    </div>
+
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+
+        <!-- Slide 1 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Magici, da lontano ho ordinato i fiori per una sorpresa alla mamma che era in crociera e aveva la fermata ad Ancona! 😍❤️
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Nikolina Kojic</h4>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="testimonials-container">
-            <div class="testimonial-slider">
-                <div class="testimonial-track">
 
-                    <!-- Témoignage 1 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Magici, da lontano ho ordinato i fiori per una sorpresa alla mamma che era in crociera e aveva la fermata ad Ancona! 😍❤️ che emozioni!! Grazie di cuore. Ps: alla mamma chiedevano tutti dove hai preso questo mazzo fantastico❤️ disponibili al top!
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar"></div>
-                                <div class="author-info">
-                                    <h4>Nikolina Kojic</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Slide 2 -->
+        <div class="swiper-slide">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Grotta Fiorita est un gage de qualité et d'expertise. Cliente depuis plusieurs années...
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar"></div>
+              <div class="author-info">
+                <h4>Giovanna Maria Caporaloni</h4>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                    <!-- Témoignage 2 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Grotta Fiorita est un gage de qualité et d'expertise. Cliente depuis plusieurs années, j'apprécie leur savoir-faire pour les petites et grandes occasions. Enrica et son équipe allient un grand professionnalisme, une attention particulière au client et une grande courtoisie. À essayer absolument !
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar"></div>
-                                <div class="author-info">
-                                    <h4>Giovanna Maria Caporaloni</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Ajoute ici les autres slides exactement comme ça -->
+        <!-- ... -->
 
-                    <!-- Témoignage 3 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Ho contattato questo negozio a distanza per il compleanno di mia figlia (30 anni). Sono stati subito disponibili, gentili e mi hanno realizzato degli splendidi fiori! Grazie a loro, sono riuscito, a distanza, a fare una bella sorpresa a mia figlia. Prezzi modesti. Lo consiglio vivamente.
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar"></div>
-                                <div class="author-info">
-                                    <h4>Gabriella</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+      </div>
 
-                    <!-- Témoignage 4 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Non conoscevo questa fiorista, ci sono andata per i miei 50 anni di matrimonio e mi sono subito sentita a mio agio, Enrica è stata molto gentile e accogliente, disponibile e professionale, diventerà la mia fiorista, la raccomando 💐
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar"></div>
-                                <div class="author-info">
-                                    <h4>Gabriella Bassi</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Témoignage 5 -->
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="testimonial-text">
-                                Sempre molto gentile e disponibile! Consegna a domicilio lo stesso giorno! Fiori magnifici, ma soprattutto una composizione realizzata con amore e passione. Grazie!
-                            </p>
-                            <div class="testimonial-author">
-                                <div class="author-avatar"></div>
-                                <div class="author-info">
-                                    <h4>Giuseppe Del Vescovo</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> <!-- .testimonial-track -->
-            </div> <!-- .testimonial-slider -->
-        </div> <!-- .testimonials-container -->
-    </div> <!-- .container -->
+      <!-- Pagination (points) -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
 </section>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 
 
     <!-- Sezione Contatti -->
