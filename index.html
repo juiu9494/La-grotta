@@ -119,7 +119,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: white;
+            background-color: var(--primary-color);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -130,37 +130,64 @@
 
         .loading-content {
             text-align: center;
-            color: var(--text-dark);
+            color: white;
         }
 
         .loading-logo {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            color: var(--light-color);
+            margin-bottom: 2rem;
             font-family: 'Playfair Display', serif;
             opacity: 0;
             animation: fadeIn 1s ease forwards 0.5s;
         }
 
         .loading-text {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0;
             animation: fadeIn 1s ease forwards 1s;
         }
 
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid var(--pale-color);
-            border-top: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
+        .loading-bar-container {
+            width: 300px;
+            height: 6px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .loading-bar {
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background-color: var(--light-color);
+            border-radius: 3px;
+            animation: loading 3s ease-in-out infinite;
+        }
+
+        .loading-petals {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .petal {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23ffeb3b"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5z"/></svg>');
+            opacity: 0;
+            animation: fallingPetals 10s linear infinite;
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
         }
 
         @keyframes fadeIn {
@@ -168,10 +195,17 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes fallingPetals {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(500px) rotate(360deg); opacity: 0; }
+        }
+
         /* Header */
         header {
-            background-color: white;
-            color: var(--text-dark);
+            background-color: var(--primary-color);
+            color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
@@ -189,7 +223,7 @@
         .logo {
             font-size: 2.2rem;
             font-weight: bold;
-            color: var(--primary-color);
+            color: var(--light-color);
             font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
@@ -211,7 +245,7 @@
         }
 
         nav ul li a {
-            color: var(--text-dark);
+            color: white;
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
@@ -226,12 +260,12 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--secondary-color);
+            background-color: var(--light-color);
             transition: var(--transition);
         }
 
         nav ul li a:hover {
-            color: var(--secondary-color);
+            color: var(--light-color);
         }
 
         nav ul li a:hover::after {
@@ -251,10 +285,6 @@
             transform: translateY(-2px);
         }
 
-        .nav-cta a {
-            color: white;
-        }
-
         .nav-cta a::after {
             display: none;
         }
@@ -263,20 +293,20 @@
             display: none;
             background: none;
             border: none;
-            color: var(--text-dark);
+            color: white;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(156, 39, 176, 0.8), rgba(233, 30, 99, 0.8)), url('entree.jpg');
+            background: url('entree.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
             text-align: center;
-            padding: 150px 0;
+            padding: 120px 0;
             position: relative;
             overflow: hidden;
         }
@@ -304,7 +334,7 @@
             margin-bottom: 1.5rem;
             opacity: 0;
             animation: fadeIn 1s ease forwards 0.5s;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .hero p {
@@ -312,7 +342,7 @@
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeIn 1s ease forwards 0.8s;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .hero-btns {
@@ -348,7 +378,6 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border: 1px solid rgba(233, 30, 99, 0.1);
         }
 
         .service-card::before {
@@ -464,7 +493,7 @@
 
         .product-image {
             height: 220px;
-            background-color: var(--pale-color);
+            background-color: var(--secondary-color);
             background-size: cover;
             background-position: center;
             position: relative;
@@ -1001,7 +1030,7 @@
                 top: 70px;
                 left: 0;
                 width: 100%;
-                background: white;
+                background: var(--primary-color);
                 padding: 20px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
                 transform: translateY(-100%);
@@ -1076,8 +1105,15 @@
     <div id="loading-screen">
         <div class="loading-content">
             <div class="loading-logo">La Grotta Fiorita</div>
-            <div class="loading-text">Preparando la bellezza della natura per te...</div>
-            <div class="loading-spinner"></div>
+            <div class="loading-text">Caricamento della natura...</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+                <div class="loading-petals">
+                    <div class="petal" style="left: 10%; animation-delay: 0s;"></div>
+                    <div class="petal" style="left: 30%; animation-delay: 1s;"></div>
+                    <div class="petal" style="left: 50%; animation-delay: 2s;"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1148,24 +1184,10 @@
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Riparazione Composizioni</h3>
-                    <p>Ripariamo e ripristiniamo le tue composizioni floreali danneggiate.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <h3>Assistenza WhatsApp</h3>
                     <p>Contattaci su WhatsApp per informazioni e consigli sulle tue piante.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>Cura e Manutenzione</h3>
-                    <p>Consulenza professionale per la cura e manutenzione delle tue piante.</p>
                 </div>
             </div>
         </div>
@@ -1178,177 +1200,146 @@
                 <h2>I Nostri Prodotti</h2>
                 <p>Scopri la nostra selezione di piante e fiori disponibili in negozio e con consegna a domicilio</p>
             </div>
-            <div class="products-filter">
-                <button class="filter-btn active" data-filter="all">Tutti</button>
-                <button class="filter-btn" data-filter="Coroncine Laurea">Coroncine Laurea</button>
-                <button class="filter-btn" data-filter="Orchidee">Orchidee</button>
-                <button class="filter-btn" data-filter="Creazioni floreali">Creazioni floreali</button>
-            </div>
-            <div class="products-grid">
-                <!-- CORONCINE LAUREA -->
-                <div class="product-card" data-category="Coroncine Laurea">
-                    <div class="product-badge">Popolare</div>
-                    <div class="product-image" style="background-image: url('img1C.jpg');">
-                        <div class="product-overlay">
-                            <div class="product-actions">
-                                <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
-                                <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Classica" class="product-action"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Coroncine Laurea</span>
-                        <h3 class="product-title">Coroncina Laurea Classica</h3>
-                        <div class="product-rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(24)</span>
-                        </div>
-                        <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
-                        <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
-                        <a href="#contatti" class="btn">Info e Disponibilità</a>
-                    </div>
-                </div>
+        <div class="products-filter">
+    <button class="filter-btn active" data-filter="all">Tutti</button>
+    <button class="filter-btn active" data-filter="Coroncine Laurea">Coroncine Laurea</button>
+    <button class="filter-btn active" data-filter="Orchidee">Orchidee</button>
+    <button class="filter-btn active" data-filter="Creazioni floreali">Creazioni floreali</button>
+</div>
 
-                <!-- Coroncina 2 -->
-                <div class="product-card" data-category="Coroncine Laurea">
-                    <div class="product-image" style="background-image: url('img2C.jpg');">
-                        <div class="product-overlay">
-                            <div class="product-actions">
-                                <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
-                                <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Elegante" class="product-action"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Coroncine Laurea</span>
-                        <h3 class="product-title">Coroncina Laurea Elegante</h3>
-                        <div class="product-rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(18)</span>
-                        </div>
-                        <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
-                        <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
-                        <a href="#contatti" class="btn">Info e Disponibilità</a>
-                    </div>
-                </div>
+<div class="products-grid">
 
-                <!-- Coroncina 3 -->
-                <div class="product-card" data-category="Coroncine Laurea">
-                    <div class="product-badge">Novità</div>
-                    <div class="product-image" style="background-image: url('img3C.jpg');">
-                        <div class="product-overlay">
-                            <div class="product-actions">
-                                <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
-                                <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Deluxe" class="product-action"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Coroncine Laurea</span>
-                        <h3 class="product-title">Coroncina Laurea Deluxe</h3>
-                        <div class="product-rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(32)</span>
-                        </div>
-                        <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
-                        <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
-                        <a href="#contatti" class="btn">Info e Disponibilità</a>
-                    </div>
-                </div>
-
-                <!-- ORCHIDEE -->
-                <!-- Orchidea 1 -->
-                <div class="product-card" data-category="Orchidee">
-                    <div class="product-badge">Più Venduta</div>
-                    <div class="product-image" style="background-image: url('img1O.jpg');">
-                        <div class="product-overlay">
-                            <div class="product-actions">
-                                <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
-                                <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20all'Orchidea%20Phalaenopsis%20Bianca" class="product-action"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Orchidee</span>
-                        <h3 class="product-title">Orchidea Phalaenopsis Bianca</h3>
-                        <div class="product-rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(42)</span>
-                        </div>
-                        <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
-                        <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
-                        <a href="#contatti" class="btn">Info e Disponibilità</a>
-                    </div>
-                </div>
-
-                <!-- CREAZIONI FLOREALI -->
-                <div class="product-card" data-category="Creazioni floreali">
-                    <div class="product-image" style="background-image: url('img3O.jpg');">
-                        <div class="product-overlay">
-                            <div class="product-actions">
-                                <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
-                                <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20a%20questa%20Creazione%20floreale" class="product-action"><i class="fab fa-whatsapp"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-info">
-                        <span class="product-category">Creazioni floreali</span>
-                        <h3 class="product-title">Composizione Floreale Elegante</h3>
-                        <div class="product-rating">
-                            <div class="rating-stars">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <span class="rating-count">(19)</span>
-                        </div>
-                        <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
-                        <a href="#contatti" class="btn">Info e Disponibilità</a>
-                    </div>
+    <!-- CORONCINE LAUREA -->
+    <!-- Coroncina 1 -->
+    <div class="product-card" data-category="Coroncine Laurea">
+        <div class="product-badge">Popolare</div>
+        <div class="product-image" style="background-image: url('img1C.jpg');">
+            <div class="product-overlay">
+                <div class="product-actions">
+                    <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Classica" class="product-action"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Sezione Chi Siamo -->
-    <section class="about section-padding" id="chi-siamo">
-        <div class="container">
-            <div class="section-title">
-                <h2>Chi Siamo</h2>
-                <p>La nostra storia e la nostra passione per la natura</p>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Dal 1990, La Grotta Fiorita è un punto di riferimento per gli amanti della natura ad Ancona e dintorni. La nostra storia inizia con la passione di Enrica per i fiori e le piante, una passione che nel corso degli anni si è trasformata in un'attività di successo.</p>
-                    <p>Crediamo che ogni pianta e ogni fiore abbia una storia da raccontare e siamo qui per aiutarti a trovare quella perfetta per te. Che tu stia cercando un regalo speciale, una pianta per la tua casa o una composizione per un evento importante, il nostro team di esperti è a tua disposizione.</p>
-                    <p>La nostra missione è portare la bellezza della natura nella tua vita quotidiana, offrendo prodotti di alta qualità e un servizio personalizzato che soddisfa le tue esigenze specifiche.</p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-text">Anni di Esperienza</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">1000+</span>
-                            <span class="stat-text">Clienti Soddisfatti</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-text">Prodotti Disponibili</span>
-                        </div>
-                    </div>
+        <div class="product-info">
+            <span class="product-category">Coroncine Laurea</span>
+            <h3 class="product-title"></h3>
+            <div class="product-rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                 </div>
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Interno del negozio La Grotta Fiorita">
+                <span class="rating-count">(24)</span>
+            </div>
+            <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
+            <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
+            <a href="#contatti" class="btn">Info e Disponibilità</a>
+        </div>
+    </div>
+
+    <!-- Coroncina 2 -->
+    <div class="product-card" data-category="Coroncine Laurea">
+        <div class="product-image" style="background-image: url('img2C.jpg');">
+            <div class="product-overlay">
+                <div class="product-actions">
+                    <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Elegante" class="product-action"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+        <div class="product-info">
+            <span class="product-category">Coroncine Laurea</span>
+            <h3 class="product-title"></h3>
+            <div class="product-rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(18)</span>
+            </div>
+            <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
+            <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
+            <a href="#contatti" class="btn">Info e Disponibilità</a>
+        </div>
+    </div>
+
+    <!-- Coroncina 3 -->
+    <div class="product-card" data-category="Coroncine Laurea">
+        <div class="product-badge">Novità</div>
+        <div class="product-image" style="background-image: url('img3C.jpg');">
+            <div class="product-overlay">
+                <div class="product-actions">
+                    <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20alla%20Coroncina%20Laurea%20Deluxe" class="product-action"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="product-category">Coroncine Laurea</span>
+            <h3 class="product-title"></h3>
+            <div class="product-rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(32)</span>
+            </div>
+            <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
+            <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
+            <a href="#contatti" class="btn">Info e Disponibilità</a>
+        </div>
+    </div>
+
+    <!-- ORCHIDEE -->
+    <!-- Orchidea 1 -->
+    <div class="product-card" data-category="Orchidee">
+        <div class="product-badge">Più Venduta</div>
+        <div class="product-image" style="background-image: url('img1O.jpg');">
+            <div class="product-overlay">
+                <div class="product-actions">
+                    <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20all'Orchidea%20Phalaenopsis%20Bianca" class="product-action"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="product-category">Orchidee</span>
+            <h3 class="product-title"></h3>
+            <div class="product-rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(42)</span>
+            </div>
+            <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
+            <div class="product-notice"><i class="fas fa-truck"></i> Consegna a domicilio disponibile</div>
+            <a href="#contatti" class="btn">Info e Disponibilità</a>
+        </div>
+    </div>
+
+    <!-- CREAZIONI FLOREALI -->
+    <div class="product-card" data-category="Creazioni floreali">
+        <div class="product-image" style="background-image: url('img3O.jpg');">
+            <div class="product-overlay">
+                <div class="product-actions">
+                    <a href="#contatti" class="product-action"><i class="fas fa-info-circle"></i></a>
+                    <a href="https://wa.me/393394932222?text=Salve,%20sono%20interessato/a%20a%20questa%20Creazione%20floreale" class="product-action"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="product-info">
+            <span class="product-category">Creazioni floreali</span>
+            <h3 class="product-title"></h3>
+            <div class="product-rating">
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <span class="rating-count">(19)</span>
+            </div>
+            <div class="product-notice"><i class="fas fa-store"></i> Disponibile in negozio</div>
+            <a href="#contatti" class="btn">Info e Disponibilità</a>
+        </div>
+    </div>
+
+</div>
+
 
     <!-- Sezione Testimonianze -->
     <section class="testimonials section-padding" id="testimonianze">
@@ -1500,7 +1491,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>Orari</h3>
-                            <p>Da martedì a sabato 08:00-12:30 - 16:00-19:00<br>Lunedì: Chiuso / Domenica: 08:00 - 12:00</p>
+                            <p>Da martedì a sabato 08:00-12:30 - 16:00-19:00-<br> Lunedì : Chiusu / Domenica : 08:00 - 12:00 </p>
                         </div>
                     </div>
                     <div class="contact-card">
@@ -1612,7 +1603,7 @@
                 setTimeout(function() {
                     document.getElementById('loading-screen').style.display = 'none';
                 }, 800);
-            }, 1500);
+            }, 2500);
         });
 
         // Mobile Menu
@@ -1639,9 +1630,9 @@
                 const filter = this.getAttribute('data-filter');
                 
                 productCards.forEach(card => {
-                    const category = card.getAttribute('data-category');
+                    const categories = card.getAttribute('data-category').split(' ');
                     
-                    if (filter === 'all' || category === filter) {
+                    if (filter === 'all' || categories.includes(filter)) {
                         // Show card with fade in effect
                         card.classList.remove('hidden');
                         setTimeout(() => {
@@ -1704,4 +1695,4 @@
         });
     </script>
 </body>
-</html>
+</html>   
